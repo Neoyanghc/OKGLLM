@@ -158,14 +158,14 @@ class Model(nn.Module):
         #     raise Exception('LLM model is not defined')
         if configs.llm_model == 'LLAMA':
             # self.llama_config = LlamaConfig.from_pretrained('/mnt/alps/modelhub/pretrained_model/LLaMA/7B_hf/')
-            self.llama_config = LlamaConfig.from_pretrained('/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/llama-7b')
+            self.llama_config = LlamaConfig.from_pretrained('/openai-community/llama-7b')
             self.llama_config.num_hidden_layers = configs.llm_layers
             self.llama_config.output_attentions = True
             self.llama_config.output_hidden_states = True
             try:
                 self.llm_model = LlamaModel.from_pretrained(
                     # "/mnt/alps/modelhub/pretrained_model/LLaMA/7B_hf/",
-                    '/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/llama-7b',
+                    '/openai-community/llama-7b',
                     trust_remote_code=True,
                     local_files_only=True,
                     config=self.llama_config,
@@ -175,7 +175,7 @@ class Model(nn.Module):
                 print("Local model files not found. Attempting to download...")
                 self.llm_model = LlamaModel.from_pretrained(
                     # "/mnt/alps/modelhub/pretrained_model/LLaMA/7B_hf/",
-                    '/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/llama-7b',
+                    '/openai-community/llama-7b',
                     trust_remote_code=True,
                     local_files_only=False,
                     config=self.llama_config,
@@ -184,7 +184,7 @@ class Model(nn.Module):
             try:
                 self.tokenizer = LlamaTokenizer.from_pretrained(
                     # "/mnt/alps/modelhub/pretrained_model/LLaMA/7B_hf/tokenizer.model",
-                    '/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/llama-7b',
+                    '/openai-community/llama-7b',
                     trust_remote_code=True,
                     local_files_only=True
                 )
@@ -192,19 +192,19 @@ class Model(nn.Module):
                 print("Local tokenizer files not found. Atempting to download them..")
                 self.tokenizer = LlamaTokenizer.from_pretrained(
                     # "/mnt/alps/modelhub/pretrained_model/LLaMA/7B_hf/tokenizer.model",
-                    '/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/llama-7b',
+                    '/openai-community/llama-7b',
                     trust_remote_code=True,
                     local_files_only=False
                 )
         elif configs.llm_model == 'Deepseek':
-            self.deepseek_config = AutoConfig.from_pretrained('/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/deepseek7b')
+            self.deepseek_config = AutoConfig.from_pretrained('/openai-community/deepseek7b')
 
             self.deepseek_config.num_hidden_layers = configs.llm_layers
             self.deepseek_config.output_attentions = True
             self.deepseek_config.output_hidden_states = True
             try:
                 self.llm_model = AutoModel.from_pretrained(
-                    '/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/deepseek7b',
+                    '/openai-community/deepseek7b',
                     trust_remote_code=True,
                     local_files_only=True,
                     config=self.deepseek_config,
@@ -212,7 +212,7 @@ class Model(nn.Module):
             except EnvironmentError:  # downloads model from HF is not already done
                 print("Local model files not found. Attempting to download...")
                 self.llm_model = AutoModel.from_pretrained(
-                    '/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/deepseek7b',
+                    '/openai-community/deepseek7b',
                     trust_remote_code=True,
                     local_files_only=False,
                     config=self.deepseek_config,
@@ -220,26 +220,26 @@ class Model(nn.Module):
 
             try:
                 self.tokenizer = AutoTokenizer.from_pretrained(
-                    '/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/deepseek7b',
+                    '/openai-community/deepseek7b',
                     trust_remote_code=True,
                     local_files_only=True
                 )
             except EnvironmentError:  # downloads the tokenizer from HF if not already done
                 print("Local tokenizer files not found. Atempting to download them..")
                 self.tokenizer = AutoTokenizer.from_pretrained(
-                    '/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/deepseek7b',
+                    '/openai-community/deepseek7b',
                     trust_remote_code=True,
                     local_files_only=False
                 )
         elif configs.llm_model == 'OceanGPT':
-            self.oceangpt_config = AutoConfig.from_pretrained('/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/oceangpt')
+            self.oceangpt_config = AutoConfig.from_pretrained('/openai-community/oceangpt')
 
             self.oceangpt_config.num_hidden_layers = configs.llm_layers
             self.oceangpt_config.output_attentions = True
             self.oceangpt_config.output_hidden_states = True
             # try:
             #     self.llm_model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
-            #         '/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/oceangpt',
+            #         '/openai-community/oceangpt',
             #         trust_remote_code=True,
             #         local_files_only=True,
             #         config=self.oceangpt_config,
@@ -248,7 +248,7 @@ class Model(nn.Module):
             
             print("Local model files not found. Attempting to download...")
             self.llm_model = AutoModel.from_pretrained(
-                '/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/oceangpt',
+                '/openai-community/oceangpt',
                 trust_remote_code=True,
                 local_files_only=False,
                 config=self.oceangpt_config,
@@ -256,26 +256,26 @@ class Model(nn.Module):
 
             try:
                 self.tokenizer = AutoTokenizer.from_pretrained(
-                    '/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/oceangpt',
+                    '/openai-community/oceangpt',
                     trust_remote_code=True,
                     local_files_only=True
                 )
             except EnvironmentError:  # downloads the tokenizer from HF if not already done
                 print("Local tokenizer files not found. Atempting to download them..")
                 self.tokenizer = AutoTokenizer.from_pretrained(
-                    '/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/oceangpt',
+                    '/openai-community/oceangpt',
                     trust_remote_code=True,
                     local_files_only=False
                 )
         elif configs.llm_model == 'GPT2':
-            self.gpt2_config = GPT2Config.from_pretrained('/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/gpt2')
+            self.gpt2_config = GPT2Config.from_pretrained('/openai-community/gpt2')
 
             self.gpt2_config.num_hidden_layers = configs.llm_layers
             self.gpt2_config.output_attentions = True
             self.gpt2_config.output_hidden_states = True
             try:
                 self.llm_model = GPT2Model.from_pretrained(
-                    '/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/gpt2',
+                    '/openai-community/gpt2',
                     trust_remote_code=True,
                     local_files_only=True,
                     config=self.gpt2_config,
@@ -283,7 +283,7 @@ class Model(nn.Module):
             except EnvironmentError:  # downloads model from HF is not already done
                 print("Local model files not found. Attempting to download...")
                 self.llm_model = GPT2Model.from_pretrained(
-                    '/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/gpt2',
+                    '/openai-community/gpt2',
                     trust_remote_code=True,
                     local_files_only=False,
                     config=self.gpt2_config,
@@ -291,26 +291,26 @@ class Model(nn.Module):
 
             try:
                 self.tokenizer = GPT2Tokenizer.from_pretrained(
-                    '/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/gpt2',
+                    '/openai-community/gpt2',
                     trust_remote_code=True,
                     local_files_only=True
                 )
             except EnvironmentError:  # downloads the tokenizer from HF if not already done
                 print("Local tokenizer files not found. Atempting to download them..")
                 self.tokenizer = GPT2Tokenizer.from_pretrained(
-                    '/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/gpt2',
+                    '/openai-community/gpt2',
                     trust_remote_code=True,
                     local_files_only=False
                 )
         elif configs.llm_model == 'BERT':
-            self.bert_config = BertConfig.from_pretrained('/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/bert-base-uncased')
+            self.bert_config = BertConfig.from_pretrained('/openai-community/bert-base-uncased')
 
             self.bert_config.num_hidden_layers = configs.llm_layers
             self.bert_config.output_attentions = True
             self.bert_config.output_hidden_states = True
             try:
                 self.llm_model = BertModel.from_pretrained(
-                    '/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/bert-base-uncased',
+                    '/openai-community/bert-base-uncased',
                     trust_remote_code=True,
                     local_files_only=True,
                     config=self.bert_config,
@@ -318,21 +318,21 @@ class Model(nn.Module):
             except EnvironmentError:  # downloads model from HF is not already done
                 print("Local model files not found. Attempting to download...")
                 self.llm_model = BertModel.from_pretrained(
-                    '/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/bert-base-uncased',
+                    '/openai-community/bert-base-uncased',
                     trust_remote_code=True,
                     local_files_only=False,
                     config=self.bert_config,
                 )
             try:
                 self.tokenizer = BertTokenizer.from_pretrained(
-                    '/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/bert-base-uncased',
+                    '/openai-community/bert-base-uncased',
                     trust_remote_code=True,
                     local_files_only=True
                 )
             except EnvironmentError:  # downloads the tokenizer from HF if not already done
                 print("Local tokenizer files not found. Atempting to download them..")
                 self.tokenizer = BertTokenizer.from_pretrained(
-                    '/remote-home/share/dmb_nas2/yhc/2025/LFM/openai-community/bert-base-uncased',
+                    '/openai-community/bert-base-uncased',
                     trust_remote_code=True,
                     local_files_only=False
                 )
