@@ -1,0 +1,6 @@
+0	monsoon_impact
+1	belongs_to
+2	has_current
+3	moonsoon_start
+4	is_at
+5	moonsoon_end

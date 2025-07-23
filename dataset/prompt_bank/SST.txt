@@ -1,0 +1,1 @@
+Global sea surface temperature with one week sample rate.
