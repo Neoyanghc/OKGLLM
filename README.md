@@ -2,12 +2,6 @@
 OKG-LLM: Aligning Ocean Knowledge Graph with Numerical Time-Series Data via LLMs for Global Sea Surface Temperature Prediction
 
 
-@article{yang2025okg,
-  title={OKG-LLM: Aligning Ocean Knowledge Graph with Observation Data via LLMs for Global Sea Surface Temperature Prediction},
-  author={Yang, Hanchen and Wang, Jiaqi and Cao, Jiannong and Li, Wengen and Zheng, Jialun and Li, Yangning and Miao, Chunyu and Guan, Jihong and Zhou, Shuigeng and Yu, Philip S},
-  journal={arXiv preprint arXiv:2508.00933},
-  year={2025}
-}
 
 
 ## Requirements
@@ -38,3 +32,16 @@ pip install -r requirements.txt
 ```bash
 bash ./scripts/OKGLLM_SST.sh 
 
+
+## Citation
+
+If you find this repo helpful, please cite our paper. 
+
+```
+@article{yang2025okg,
+  title={OKG-LLM: Aligning Ocean Knowledge Graph with Observation Data via LLMs for Global Sea Surface Temperature Prediction},
+  author={Yang, Hanchen and Wang, Jiaqi and Cao, Jiannong and Li, Wengen and Zheng, Jialun and Li, Yangning and Miao, Chunyu and Guan, Jihong and Zhou, Shuigeng and Yu, Philip S},
+  journal={arXiv preprint arXiv:2508.00933},
+  year={2025}
+}
+```
