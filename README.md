@@ -33,7 +33,7 @@ pip install -r requirements.txt
 bash ./scripts/OKGLLM_SST.sh 
 
 
-## Citation
+##  Citation
 
 If you find this repo helpful, please cite our paper. 
 
@@ -44,4 +44,3 @@ If you find this repo helpful, please cite our paper.
   journal={arXiv preprint arXiv:2508.00933},
   year={2025}
 }
-```
