@@ -38,9 +38,10 @@ bash ./scripts/OKGLLM_SST.sh
 If you find this repo helpful, please cite our paper. 
 
 ```
-@article{yang2025okg,
-  title={OKG-LLM: Aligning Ocean Knowledge Graph with Observation Data via LLMs for Global Sea Surface Temperature Prediction},
+@article{yang2026okg,
+  title={OKG-LLM: aligning ocean knowledge graph with observation data via LLMs for global sea surface temperature prediction},
   author={Yang, Hanchen and Wang, Jiaqi and Cao, Jiannong and Li, Wengen and Zheng, Jialun and Li, Yangning and Miao, Chunyu and Guan, Jihong and Zhou, Shuigeng and Yu, Philip S},
-  journal={arXiv preprint arXiv:2508.00933},
-  year={2025}
+  journal={IEEE Transactions on Knowledge and Data Engineering},
+  year={2026},
+  publisher={IEEE}
 }
